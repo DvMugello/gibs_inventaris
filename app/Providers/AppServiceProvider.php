@@ -15,11 +15,13 @@ class AppServiceProvider extends ServiceProvider
         $loader->alias('Debugbar', \Barryvdh\Debugbar\Facades\Debugbar::class);
     }
 
+
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+
     }
 }

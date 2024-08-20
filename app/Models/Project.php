@@ -10,6 +10,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Project extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
+
+    protected $table="projects";
     protected $guarded=['id'];
 
 public static function last()

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rooms extends Model
 {
     use HasFactory;
-
+    protected $table="rooms";
     protected $guarded=['id'];
     protected $with=['project'];
 
