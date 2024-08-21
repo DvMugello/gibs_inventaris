@@ -44,7 +44,9 @@
                                     <input class="form-control me-2" type="search" placeholder="Search"
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
+
                                 </form>
+                                <a href="/dashboard/staff/print" class="btn btn-success">Export</a>
                                 <a href="/dashboard/staff/create" class="btn btn-primary">{{ $subteks }}</a>
                             </div>
                             <div class="table-responsive">

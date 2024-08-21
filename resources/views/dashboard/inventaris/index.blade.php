@@ -45,6 +45,7 @@
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
+                                <a href="/dashboard/inventaris/print" class="btn btn-success">Export</a>
                                 <a href="/dashboard/inventaris/create" class="btn btn-primary">{{ $subteks }}</a>
                             </div>
                             <div class="table-responsive">

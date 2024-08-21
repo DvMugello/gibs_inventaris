@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Exports\StaffExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StaffController extends Controller
 {
@@ -48,4 +50,10 @@ class StaffController extends Controller
 
         return redirect('/dashboard/staff')->with('success','Registaration successfull! Login Please');
     }
+    public function export()
+    {
+        // return view ('dashboard.staff.print');
+        return Excel::download(new StaffExport, 'staff.xlsx');
+    }
+
 }

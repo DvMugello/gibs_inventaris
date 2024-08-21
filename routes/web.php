@@ -25,6 +25,7 @@ Route::post('/logout',[LoginController::class, 'logout']);
 Route::get('/dashboard/staff',[StaffController::class,'index'])->middleware('auth');
 Route::get('/dashboard/staff/create',[StaffController::class,'create'])->middleware('auth');
 Route::post('/dashboard/staff',[StaffController::class,'store'])->middleware('auth');
+Route::get('/dashboard/staff/print', [StaffController::class, 'export']);
 
 Route::get('/dashboard/project',[ProjectController::class,'index'])->middleware('auth');
 Route::get('/dashboard/project/create',[ProjectController::class,'create'])->middleware('auth');
@@ -33,6 +34,7 @@ Route::post('/dashboard/project',[ProjectController::class,'store'])->middleware
 Route::get('/dashboard/items',[ItemsController::class,'index'])->middleware('auth');
 Route::get('/dashboard/items/create',[ItemsController::class,'create'])->middleware('auth');
 Route::post('/dashboard/items',[ItemsController::class,'store'])->middleware('auth');
+Route::get('/dashboard/items/print', [ItemsController::class, 'export']);
 
 Route::get('/dashboard/project/rooms',[RoomsController::class,'index'])->middleware('auth');
 Route::get('/dashboard/project/rooms/create',[RoomsController::class,'create'])->middleware('auth');
@@ -41,6 +43,9 @@ Route::post('/dashboard/project/rooms',[RoomsController::class,'store'])->middle
 Route::get('/dashboard/inventaris',[InventarisController::class,'index'])->middleware('auth');
 Route::get('/dashboard/inventaris/create',[InventarisController::class,'create'])->middleware('auth');
 Route::post('/dashboard/inventaris',[InventarisController::class,'store'])->middleware('auth');
+Route::get('/dashboard/inventaris/print', [InventarisController::class, 'export']);
 
 Route::get('/dashboard/rekap',[RekapController::class,'index'])->middleware('auth');
 Route::get('/dashboard/rekap/{periode:year}',[RekapController::class,'rekaptahun'])->middleware('auth');
+Route::get('/dashboard/rekap/print', [RekapController::class, 'export']);
+

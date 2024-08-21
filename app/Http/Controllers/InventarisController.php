@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InventarisExport;
 use App\Models\Inventaris;
 use App\Models\Items;
 use App\Models\Periode;
 use App\Models\Rooms;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class InventarisController extends Controller
@@ -66,5 +68,10 @@ class InventarisController extends Controller
             'period_id'=>$request->period_id
         ]);
         return redirect('/dashboard/inventaris')->with('success','Inventaris Has Been Added');
+    }
+    public function export()
+    {
+        // return view ('dashboard.staff.print');
+        return Excel::download(new InventarisExport, 'inventaris.xlsx');
     }
 }

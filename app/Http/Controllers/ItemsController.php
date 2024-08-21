@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ItemsExport;
 use App\Models\Items;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -34,5 +36,10 @@ class ItemsController extends Controller
 
         Items::create($validateData);
         return redirect('/dashboard/items')->with('success','Items Successfull Added Has Been');
+    }
+    public function export()
+    {
+        // return view ('dashboard.staff.print');
+        return Excel::download(new ItemsExport, 'items.xlsx');
     }
 }
