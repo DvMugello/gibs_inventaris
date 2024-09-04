@@ -56,6 +56,7 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">No Telepon</th>
+                                        <th scope="col">Role User</th>
                                     </thead>
                                     @foreach ($users as $user)
                                     <tr>
@@ -64,6 +65,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->get_role}}</td>
                                         </tbody>
                                     </tr>
                                     @endforeach
