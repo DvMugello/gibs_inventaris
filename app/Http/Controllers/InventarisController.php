@@ -18,21 +18,22 @@ class InventarisController extends Controller
                 $rooms= Rooms::firstWhere('name',request('rooms'));
                 $title=$rooms->name;
             }
-            if(request('items')){
-                $items= Items::firstWhere('name',request('items'));
-                $items->name;
+            if(request('item')){
+                $item= Items::firstWhere('name',request('item'));
+                $item->name;
             }
             if(request('periode')){
                 $periode= Periode::firstWhere('year',request('periode'));
                 $periode->year;
             }
+            $list=Inventaris::with(['item'])->latest()->filter(request(['rooms','item','periode']))->paginate(5)->withQueryString();
 
         return view('dashboard.inventaris.index',[
             'title'=>'Inventaris GIBS',
             'sub'=> $title,
             'teks'=>'Akses Menu Dan Informasi Penting Lainnya Di Sini',
             'subteks'=>'Create New Inventaris',
-            'list'=> Inventaris::latest()->filter(request(['rooms','items','periode']))->paginate(5)->withQueryString()
+            'list'=>$list
         ]);
     }
     public function create(){

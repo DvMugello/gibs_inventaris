@@ -58,71 +58,28 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama</label>
-                                                <input type="text"
-                                                    class="form-control @error('name')
-                                is-invalid
-                                @enderror"
-                                                    id="name" name="name" required autofocus
-                                                    value="{{ old('name') }}">
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="name" id="name" type="text" value="{{ old('name') }}"
+                                                    placeholder="Nama Staff" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
-                                                <input type="text"
-                                                    class="form-control @error('username')
-                                is-invalid
-                                @enderror"
-                                                    id="username" name="username" required
-                                                    value="{{ old('username') }}">
-                                                @error('username')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="username" id="username" type="text" value="{{ old('username') }}"
+                                                    placeholder="Username" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
-                                                <input type="email"
-                                                    class="form-control @error('email')
-                                is-invalid
-                                @enderror"
-                                                    id="email" name="email" required value="{{ old('email') }}">
-                                                @error('email')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="email" id="email" type="email" value="{{ old('email') }}"
+                                                    placeholder="Email" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="password" class="form-label">Password</label>
-                                                <input type="password"
-                                                    class="form-control @error('password')
-                                is-invalid
-                                @enderror"
-                                                    id="password" name="password" required
-                                                    value="{{ old('password') }}">
-                                                @error('password')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="password" id="password" type="password" value="{{ old('password') }}"
+                                                    placeholder="Password" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="phone" class="form-label">No Telepon</label>
-                                                <input type="teks"
-                                                    class="form-control @error('phone')
-                                is-invalid
-                                @enderror"
-                                                    id="phone" name="phone" required value="{{ old('phone') }}">
-                                                @error('phone')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="phone" id="phone" type="text" value="{{ old('phone') }}"
+                                                placeholder="No Telepon" attribute="required" />
                                             </div>
                                             <button type="submit" class="btn btn-primary">Create Project</button>
                                         </form>

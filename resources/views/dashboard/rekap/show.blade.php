@@ -42,7 +42,7 @@
                             <h2 class="fw-bold ms-md-2">Jenis Rekap</h2>
                             <div class="container d-grid gap-2 d-md-flex justify-content-md-start">
                                 <a href="/dashboard/rekap" class="badge rounded-pill btn btn-primary btn-lg fs-5">Ruangan</a>
-                                <a href="/dashboard/rekap/{periode:year}" class="badge rounded-pill btn btn-primary btn-lg fs-5">Tahun</a>
+                                <a href="{{ route('dashboard.rekap.show',('periode')) }}" class="badge rounded-pill btn btn-primary btn-lg fs-5">Tahun</a>
                             </div>
                         </div>
                         <nav class="navbar card navbar-expand-lg m-md-3 bg-body-primary">
@@ -64,7 +64,7 @@
                                 </ul>
                                 <form class="d-flex col-md-9" role="search">
                                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-primary btn-sm" type="submit">Export Rekap</button>
+                                  <a href="{{ route('dashboard.rekap.exportyear',('periode')) }}" class="btn btn-primary btn-sm" type="submit">Export Rekap</a>
                                 </form>
                               </div>
                             </div>
@@ -81,8 +81,8 @@
                                     <tr>
                                         <tbody>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $inventaris->item_id }}</td>
-                                            <td>{{ $inventaris->period_id }}</td>
+                                            <td>{{ $inventaris->item->name }}</td>
+                                            <td>{{ $inventaris->periode->year }}</td>
                                             <td>{{ $inventaris->total }}</td>
                                         </tbody>
                                     </tr>

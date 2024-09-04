@@ -58,31 +58,13 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama Kelas</label>
-                                                <input type="text"
-                                                    class="form-control @error('name')
-                                is-invalid
-                                @enderror"
-                                                    id="name" name="name" required autofocus
-                                                    value="{{ old('name') }}">
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="name" id="name" type="text" value="{{ old('name') }}"
+                                                    placeholder="Nama Kelas" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="number" class="form-label">Nomor Kelas</label>
-                                                <input type="numeric"
-                                                    class="form-control @error('number')
-                                is-invalid
-                                @enderror"
-                                                    id="number" name="number" required
-                                                    value="{{ old('number') }}">
-                                                @error('number')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="number" id="number" type="numeric" value="{{ old('number') }}"
+                                                    placeholder="Nomor Kelas" attribute="required" />
                                             </div>
 
                                             <div class="mb-3">

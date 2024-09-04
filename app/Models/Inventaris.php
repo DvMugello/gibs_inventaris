@@ -11,7 +11,7 @@ class Inventaris extends Model
     protected $table="inventaris";
     protected $guarded=['id'];
 
-    protected $with=['items','periode','rooms','rekap'];
+    protected $with=['item','periode','rooms','rekap'];
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['rooms'] ?? false, function($query,$rooms){
@@ -24,20 +24,20 @@ class Inventaris extends Model
                 $query->where('year',$periode);
             });
         });
-        $query->when($filters['items'] ?? false, function($query,$items){
-            return $query->whereHas('items', function($query) use ($items){
-                $query->where('name',$items);
+        $query->when($filters['item'] ?? false, function($query,$item){
+            return $query->whereHas('item', function($query) use ($item){
+                $query->where('name',$item);
             });
         });
     }
 
-    public function items()
+    public function item()
     {
-        return $this->belongsTo(Items::class);
+        return $this->belongsTo(Items::class,'item_id','id');
     }
     public function periode()
     {
-        return $this->belongsTo(Periode::class);
+        return $this->belongsTo(Periode::class ,'period_id','id');
     }
     public function rooms()
     {

@@ -69,9 +69,9 @@
                                         <tr>
                                             <tbody>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $inventaris->items->name }}</td>
-                                                <td>{{ $inventaris->items->merk }}</td>
-                                                <td>{{ $inventaris->items->color }}</td>
+                                                <td>{{ $inventaris->item->name }}</td>
+                                                <td>{{ $inventaris->item->merk }}</td>
+                                                <td>{{ $inventaris->item->color }}</td>
                                                 <td>{{ $inventaris->description }}</td>
                                                 <td>{{ $inventaris->total }}</td>
                                                 <td>{{ $inventaris->total_good }}</td>

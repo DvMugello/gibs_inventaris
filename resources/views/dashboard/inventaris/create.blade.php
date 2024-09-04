@@ -105,71 +105,32 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="total" class="form-label">Total Barang</label>
-                                                <input type="numeric"
-                                                    class="form-control @error('total')
-                                is-invalid
-                                @enderror"
-                                                    id="total" name="total" required value="{{ old('total') }}">
-                                                @error('total')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="total" id="total" type="numeric"
+                                                    value="{{ old('total') }}" placeholder="Total Barang"
+                                                    attribute="required" />
                                             </div>
                                             <div class="input-group ">
                                                 <label for="total_barang" class="form-label">Kondisi Barang</label>
                                                 <div class="col-md-3 m-md-3">
-                                                    <input type="numeric"
-                                                        class="form-control @error('total_good')
-                                is-invalid
-                                @enderror"
-                                                        id="total_good" name="total_good" required
-                                                        value="{{ old('total_good') }}" placeholder="BAIK">
-                                                    @error('total_good')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                                    <x-forms.input name="total_good" id="total_good" type="numeric"
+                                                        value="{{ old('total_good') }}" placeholder="Total Barang Baik"
+                                                        attribute="required" />
                                                 </div>
                                                 <div class="col-md-3 m-md-3">
-                                                    <input type="numeric"
-                                                        class="form-control @error('total_not_good')
-                                is-invalid
-                                @enderror"
-                                                        id="total_not_good" name="total_not_good" required
-                                                        value="{{ old('total_not_good') }}" placeholder="K.BAIK">
-                                                    @error('total_not_good')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                                    <x-forms.input name="total_not_good" id="total_not_good"
+                                                        type="numeric" value="{{ old('total_not_good') }}"
+                                                        placeholder="Total Barang K.Baik" attribute="required" />
                                                 </div>
                                                 <div class="col-md-3 m-md-3">
-                                                    <input type="numeric"
-                                                        class="form-control @error('total_bad')
-                                is-invalid
-                                @enderror"
-                                                        id="total_bad" name="total_bad" required
-                                                        value="{{ old('total_bad') }}" placeholder="RUSAK">
-                                                    @error('total_bad')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                                    <x-forms.input name="total_bad" id="total_bad" type="numeric"
+                                                        value="{{ old('total_bad') }}"
+                                                        placeholder="Total Barang Rusak" attribute="required" />
                                                 </div>
                                                 <div class="mb-3 col-md-11">
                                                     <label for="description" class="form-label">Keterangan</label>
-                                                    <input type="text"
-                                                        class="form-control ms-md-2 @error('description')
-                                    is-invalid
-                                    @enderror"
-                                                        id="description" name="description" required autofocus
-                                                        value="{{ old('description') }}">
-                                                    @error('description')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
+                                                    <x-forms.input name="description" id="description" type="teks"
+                                                        value="{{ old('description') }}" placeholder="Keterangan"
+                                                        attribute="required" />
                                                 </div>
                                             </div>
 

@@ -58,58 +58,25 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama Barang</label>
-                                                <input type="text"
-                                                    class="form-control @error('name')
-                                is-invalid
-                                @enderror"
-                                                    id="name" name="name" required autofocus
-                                                    value="{{ old('name') }}">
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="name" id="name" type="text" value="{{ old('name') }}"
+                                                    placeholder="Nama Barang" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="merk" class="form-label">Merk Barang</label>
-                                                <input type="text"
-                                                    class="form-control @error('merk')
-                                is-invalid
-                                @enderror"
-                                                    id="merk" name="merk" required
-                                                    value="{{ old('merk') }}">
-                                                @error('merk')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="merk" id="merk" type="text" value="{{ old('merk') }}"
+                                                    placeholder="Merk Barang" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="color" class="form-label">Warna Barang</label>
-                                                <input type="text"
-                                                    class="form-control @error('color')
-                                is-invalid
-                                @enderror"
-                                                    id="color" name="color" required value="{{ old('color') }}">
-                                                @error('color')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="color" id="color" type="text" value="{{ old('color') }}"
+                                                placeholder="Warna Barang" attribute="required" />
                                             </div>
                                             <div class="mb-3">
                                                 <label for="slug" class="form-label">Kode Barang</label>
-                                                <input type="text"
-                                                    class="form-control @error('slug')
-                                is-invalid
-                                @enderror"
-                                                    id="slug" name="slug" required value="{{ old('slug') }}">
-                                                @error('slug')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="slug" id="slug" type="text" value="{{ old('slug') }}"
+                                                placeholder="Kode Barang" attribute="required" />
                                             </div>
+
                                             <button type="submit" class="btn btn-primary">Create Project</button>
                                         </form>
                                     </table>

@@ -54,34 +54,17 @@
                                 @endif
                                 <div class="table-responsive small col-lg-auto">
                                     <table class="table table-striped table-sm">
-                                        <form method="post" action="/dashboard/project"
-                                            enctype="multipart/form-data">
+                                        <form method="post" action="/dashboard/project" enctype="multipart/form-data">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama Gedung</label>
-                                                <input type="text"
-                                                    class="form-control @error('name')
-                                is-invalid
-                                @enderror"
-                                                    id="name" name="name" required autofocus
-                                                    value="{{ old('name') }}">
-                                                @error('name')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="name" id="name" type="text" value="{{ old('name') }}"
+                                                    placeholder="Nama Gedung" attribute="required" />
                                             </div>
                                             <div class="mb-2">
                                                 <label for="image" class="form-label">Upload Foto Gedung</label>
-                                                <input type="file" id="image" name="image"
-                                                    class="form-control dropify @error('image')
-                        is-invalid
-                        @enderror">
-                                                @error('image')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <x-forms.input name="image" id="image" type="text" value="{{ old('image') }}"
+                                                    placeholder="Foto Gedung" attribute="required" class="dropify"/>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Create Project</button>
                                         </form>
@@ -107,7 +90,9 @@
     <script src="{{ asset('js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('dropify/dist/js/dropify.js') }}"></script>
-    <script>$('.dropify').dropify();</script>
+    <script>
+        $('.dropify').dropify();
+    </script>
 
 </body>
 

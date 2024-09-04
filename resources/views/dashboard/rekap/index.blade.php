@@ -43,7 +43,7 @@
                             <div class="container d-grid gap-2 d-md-flex justify-content-md-start">
                                 <a href="/dashboard/rekap"
                                     class="badge rounded-pill btn btn-primary btn-lg fs-5">Ruangan</a>
-                                <a href="/dashboard/rekap/{periode:year}"
+                                <a href="{{ route('dashboard.rekap.show',('periode')) }}"
                                     class="badge rounded-pill btn btn-primary btn-lg fs-5">Tahun</a>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                     <form class="d-flex col-md-9" role="search">
                                         <input class="form-control me-2" type="search" placeholder="Search"
                                             aria-label="Search">
-                                        <button class="btn btn-primary btn-sm" type="submit">Export Rekap</button>
+                                        <a href="{{ route('dashboard.rekap.export') }}" class="btn btn-primary btn-sm" type="submit">Export Rekap</a>
                                     </form>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                     <tr>
                                         <tbody>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $inventaris->item_id }}</td>
+                                            <td>{{ $inventaris->item->name }}</td>
                                             <td>{{ $inventaris->rooms->name }}</td>
                                             <td>{{ $inventaris->total }}</td>
                                         </tbody>

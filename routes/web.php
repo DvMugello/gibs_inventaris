@@ -22,30 +22,37 @@ Route::get('/Login',[LoginController::class, 'index'])->middleware('guest');
 Route::post('/Login',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout']);
 
-Route::get('/dashboard/staff',[StaffController::class,'index'])->middleware('auth');
-Route::get('/dashboard/staff/create',[StaffController::class,'create'])->middleware('auth');
-Route::post('/dashboard/staff',[StaffController::class,'store'])->middleware('auth');
-Route::get('/dashboard/staff/print', [StaffController::class, 'export']);
+Route::group([
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.',
+    'middleware' => ['role:admin|staff'],
+], function(){
 
-Route::get('/dashboard/project',[ProjectController::class,'index'])->middleware('auth');
-Route::get('/dashboard/project/create',[ProjectController::class,'create'])->middleware('auth');
-Route::post('/dashboard/project',[ProjectController::class,'store'])->middleware('auth');
+    Route::get('/staff',[StaffController::class,'index'])->name('staff');
+    Route::get('/staff/create',[StaffController::class,'create'])->name('staff.create');
+    Route::post('/staff',[StaffController::class,'store'])->name('staff.store');
+    Route::get('/staff/print', [StaffController::class, 'export'])->name('staff.export');
 
-Route::get('/dashboard/items',[ItemsController::class,'index'])->middleware('auth');
-Route::get('/dashboard/items/create',[ItemsController::class,'create'])->middleware('auth');
-Route::post('/dashboard/items',[ItemsController::class,'store'])->middleware('auth');
-Route::get('/dashboard/items/print', [ItemsController::class, 'export']);
+    Route::get('/project',[ProjectController::class,'index'])->name('project');
+    Route::get('/project/create',[ProjectController::class,'create'])->name('project.create');
+    Route::post('/project',[ProjectController::class,'store'])->name('project.store');
 
-Route::get('/dashboard/project/rooms',[RoomsController::class,'index'])->middleware('auth');
-Route::get('/dashboard/project/rooms/create',[RoomsController::class,'create'])->middleware('auth');
-Route::post('/dashboard/project/rooms',[RoomsController::class,'store'])->middleware('auth');
+    Route::get('/items',[ItemsController::class,'index'])->name('items');
+    Route::get('/items/create',[ItemsController::class,'create'])->name('items.create');
+    Route::post('/items',[ItemsController::class,'store'])->name('items.store');
+    Route::get('/items/print', [ItemsController::class, 'export'])->name('items.export');
 
-Route::get('/dashboard/inventaris',[InventarisController::class,'index'])->middleware('auth');
-Route::get('/dashboard/inventaris/create',[InventarisController::class,'create'])->middleware('auth');
-Route::post('/dashboard/inventaris',[InventarisController::class,'store'])->middleware('auth');
-Route::get('/dashboard/inventaris/print', [InventarisController::class, 'export']);
+    Route::get('/project/rooms',[RoomsController::class,'index'])->name('rooms');
+    Route::get('/project/rooms/create',[RoomsController::class,'create'])->name('rooms.create');
+    Route::post('/project/rooms',[RoomsController::class,'store'])->name('rooms.store');
 
-Route::get('/dashboard/rekap',[RekapController::class,'index'])->middleware('auth');
-Route::get('/dashboard/rekap/{periode:year}',[RekapController::class,'rekaptahun'])->middleware('auth');
-Route::get('/dashboard/rekap/print', [RekapController::class, 'export']);
+    Route::get('/inventaris',[InventarisController::class,'index'])->name('inventaris');
+    Route::get('/inventaris/create',[InventarisController::class,'create'])->name('inventaris.create');
+    Route::post('/inventaris',[InventarisController::class,'store'])->name('inventaris.store');
+    Route::get('/inventaris/print', [InventarisController::class, 'export'])->name('inventaris.export');
 
+    Route::get('/rekap',[RekapController::class,'index'])->name('rekap');
+    Route::get('/rekap/print', [RekapController::class, 'export'])->name('rekap.export');
+    Route::get('/rekap/{periode:year}',[RekapController::class,'show'])->name('rekap.show');
+    Route::get('/rekap/{periode:year}/print',[RekapController::class,'exportyear'])->name('rekap.exportyear');
+});
