@@ -75,6 +75,12 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Barang</th>
                                     <th scope="col">Tahun</th>
+                                    <th scope="col" class="text-center">Kondisi Barang
+                                        <div class="d-flex justify-content-evenly">
+                                            <p class="p-2">Baik</p>
+                                            <p class="p-2">K.Baik</p>
+                                            <p class="p-2">Rusak</p>
+                                        </div>
                                     <th scope="col">Total</th>
                                 </thead>
                                 @foreach ($rekap as $inventaris)
@@ -83,6 +89,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $inventaris->item->name }}</td>
                                             <td>{{ $inventaris->periode->year }}</td>
+                                            <td>{{ $inventaris->total_good }}</td>
+                                            <td>{{ $inventaris->total_not_good }}</td>
+                                            <td>{{ $inventaris->total_bad }}</td>
                                             <td>{{ $inventaris->total }}</td>
                                         </tbody>
                                     </tr>

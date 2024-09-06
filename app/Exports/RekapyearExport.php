@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Rekap;
+use App\Models\Inventaris;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class RekapyearExport implements FromCollection
@@ -12,6 +12,6 @@ class RekapyearExport implements FromCollection
     */
     public function collection()
     {
-        return Rekap::all();
+        return Inventaris::all();
     }
 }

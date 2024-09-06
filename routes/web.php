@@ -11,10 +11,8 @@ use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard.home',[
-        'title'=>'Inventaris GIBS',
-        'sub'=>'Dashboard Home',
-        'teks'=>'Akses Menu Dan Informasi Penting Lainnya Di Sini'
+    return view('Login.index',[
+        'title'=>'Login Form'
     ]);
 });
 Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');

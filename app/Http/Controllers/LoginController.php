@@ -8,7 +8,7 @@ class LoginController extends Controller
 {
     public function index(){
         return view('Login.index',[
-            'title'=>'Login Form'
+            
         ]);
     }
     public function authenticate(Request $request){

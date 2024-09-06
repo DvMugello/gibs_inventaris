@@ -43,7 +43,7 @@
                             <div class="container d-grid gap-2 d-md-flex justify-content-md-start">
                                 <a href="/dashboard/rekap"
                                     class="badge rounded-pill btn btn-primary btn-lg fs-5">Ruangan</a>
-                                <a href="{{ route('dashboard.rekap.show',('periode')) }}"
+                                <a href="{{ route('dashboard.rekap.show', 'periode') }}"
                                     class="badge rounded-pill btn btn-primary btn-lg fs-5">Tahun</a>
                             </div>
                         </div>
@@ -54,11 +54,13 @@
                                         <label for="gedung" class="form-label fw-bold fs-6 me-md-1">Gedung <select
                                                 name="room_id" id="room_id" class="form-select">
                                                 @foreach ($gedung as $project)
+                                                <a href="/dashboard/project/rooms?project={{ $project->name}}">
                                                     @if (old('project_id') == $project->id)
                                                         <option value="{{ $project->id }}" selected>
-                                                            {{ $project->name }}</option>
+                                                        {{ $project->name }}</option>
                                                     @else
                                                         <option value="{{ $project->id }}">{{ $project->name }}
+                                                            <a href="/dashboard/project/rooms?project={{ $project->name}}">
                                                         </option>
                                                     @endif
                                                 @endforeach
@@ -80,7 +82,8 @@
                                     <form class="d-flex col-md-9" role="search">
                                         <input class="form-control me-2" type="search" placeholder="Search"
                                             aria-label="Search">
-                                        <a href="{{ route('dashboard.rekap.export') }}" class="btn btn-primary btn-sm" type="submit">Export Rekap</a>
+                                        <a href="{{ route('dashboard.rekap.export') }}" class="btn btn-primary btn-sm"
+                                            type="submit">Export Rekap</a>
                                     </form>
                                 </div>
                             </div>
@@ -90,8 +93,15 @@
                                 <thead>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Barang</th>
-                                    <th scope="col">Nama Ruang</th>
-                                    <th scope="col">Total</th>
+                                    <th scope="col">Nomor Ruangan</th>
+                                    <th scope="col" class="text-center">Kondisi Barang
+                                        <div class="d-flex justify-content-evenly">
+                                            <p class="p-2">Baik</p>
+                                            <p class="p-2">K.Baik</p>
+                                            <p class="p-2">Rusak</p>
+                                        </div>
+                                    <th scope="col">Jumlah</th>
+                                    </th>
                                 </thead>
                                 @foreach ($rekap as $inventaris)
                                     <tr>
@@ -99,6 +109,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $inventaris->item->name }}</td>
                                             <td>{{ $inventaris->rooms->name }}</td>
+                                            <td>{{ $inventaris->total_good }}</td>
+                                            <td>{{ $inventaris->total_not_good }}</td>
+                                            <td>{{ $inventaris->total_bad }}</td>
                                             <td>{{ $inventaris->total }}</td>
                                         </tbody>
                                     </tr>

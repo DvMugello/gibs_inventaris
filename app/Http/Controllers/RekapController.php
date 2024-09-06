@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\RekapExport;
 use App\Exports\RekapyearExport;
 use App\Models\Inventaris;
+use App\Models\Items;
 use App\Models\Periode;
 use App\Models\Project;
 use App\Models\Rooms;
@@ -20,6 +21,7 @@ class RekapController extends Controller
             'teks'=>'Akses Menu Dan Informasi Penting Lainnya Di Sini',
             'tahun'=>Periode::all(),
             'gedung'=>Project::all(),
+            'items'=>Items::all(),
             'rekap'=>Inventaris::all()
 
         ]);
